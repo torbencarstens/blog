@@ -1,0 +1,12 @@
+site_name: my blog
+site_url: https://carstens.tech
+theme:
+  name: material
+plugins:
+  - git-revision-date
+nav:
+  - Home: index.md
+  - Kubernetes:
+    - Mine:
+      - Setup: 'kubernetes/mine/setup.md'
+  - About: about.md
