@@ -4,6 +4,7 @@ WORKDIR /app
 
 ENV PYTHONUNBUFFERED 1
 
+ADD .git/ .git/
 ADD docs/ docs/
 ADD requirements.txt requirements.txt
 ADD mkdocs.yml mkdocs.yml
