@@ -696,10 +696,10 @@ There is a limit when nesting user namespaces, the maximum nesting limit is 32.
 Since a process can have several PIDs in several namespaces it might be handy to see them all, all PIDs for a process can be found in `/proc/pid/status`
 
 ```bash
-$0> cat /proc/5468/status | grep NSpid
+$0> grep NSpid /proc/5468/status
 NSpid:	5468	1
 
-$0> cat /proc/5662/status | grep NSpid
+$0> grep NSpid /proc/5662/status
 NSpid:	5662	7	1
 ```
 
@@ -709,12 +709,12 @@ Nesting PIDs go from left to right (`{root namespace} {ns1} {ns2} [...]`)
 
 ```bash
 $0> nsenter --target 5468 --all
-$1> cat /proc/7/status | grep NSpid
+$1> grep NSpid /proc/7/status
 NSpid:	7	1
 $1> cat /proc/7/cmdline
 bash
 
-$2> cat /proc/1/status | grep NSpid
+$2> grep NSpid /proc/1/status
 NSpid:	1
 ```
 
