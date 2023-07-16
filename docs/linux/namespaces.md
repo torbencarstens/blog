@@ -1,3 +1,11 @@
+---
+title: Let's build a container runtime
+summary: How do linux namespaces work and how they are related to containers
+authors:
+    - Torben Carstens
+date: 2023-07-16
+---
+
 # Let's build a container runtime
 
 ## DISCLAIMER
