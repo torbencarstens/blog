@@ -1,5 +1,6 @@
 site_name: my blog
 site_url: https://carstens.tech
+repo_url: https://github.com/torbencarstens/blog
 theme:
   name: material
   palette:
