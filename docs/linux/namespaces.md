@@ -74,7 +74,7 @@ lrwxrwxrwx    0 root             10 Mai 16:46 self -> 13929
 
 ### uts namespace
 
-The `uts` namespace is probably the least intersting one but is a good entrypoing for showing a bit about namespaces capabilities.
+The `uts` namespace is probably the least intersting one but is a good entrypoint for showing a bit about namespaces capabilities.
 
 Let's have a look at our hostname
 
@@ -116,7 +116,7 @@ $1> hostname
 torben-xps9320
 ```
 
-Our hostname inside our new uts namespace is still the same because by default we're inheriting all values from our callee's namespace (i.e. our root namespace in this case).
+Our hostname inside our new `uts` namespace is still the same because by default we're inheriting all values from our callee's namespace (i.e. our root namespace in this case).
 
 Let's try changing our hostname inside of our container and see whether we have different hostnames inside and outside:
 
@@ -241,7 +241,7 @@ $ strace --follow-forks unshare ls
 
 </details>
 
-#### why are you showing me some execve calls
+#### **why are you showing me some execve calls**
 
 Well, what's so interesting about `execve` and what is it? Let's steal content from the man-pages again:
 
@@ -255,7 +255,7 @@ For our `unshare` call this means that the `unshare` command "disappears" and `l
 
 I've sprinkled the `--follow-forks` in there so that we can see that we keep our previous pid when we switch from `unshare` to `ls`.
 
-#### back to debugging
+#### **back to debugging**
 
 contrasting this with grep'ing for `execve` in `ls` we see that the `execve` calls further down the road do not happen with `1s`.
 
@@ -657,7 +657,7 @@ root           1       0  0 13:01 pts/0    00:00:00 bash
 root           3       1  0 13:02 pts/0    00:00:00 ps -ef
 ```
 
-#### nesting
+#### **nesting**
 
 We've done `unshare` inside of our root namespace up to now, what happens if we execute `unshare` inside a new namespace?
 
@@ -691,7 +691,7 @@ Nesting namespaces doesn't seem to be a problem and behaves as we could've expec
 
 There is a limit when nesting user namespaces, the maximum nesting limit is 32.
 
-#### checking all PIDs for a process
+#### **checking all PIDs for a process**
 
 Since a process can have several PIDs in several namespaces it might be handy to see them all, all PIDs for a process can be found in `/proc/pid/status`
 
@@ -844,7 +844,7 @@ $ ip a | grep veth
     link/ether b2:5a:06:5f:cf:9b brd ff:ff:ff:ff:ff:ff link-netns demons
 ```
 
-#### separating our interfaces
+#### **separating our interfaces**
 
 We notice that our peer was renamed to `if5` instead of `neth0`, this is simply because interface IDs are globally unique while names are only unique in namespaces.
 
@@ -1238,7 +1238,7 @@ https://www.kernel.org/doc/Documentation/admin-guide/cgroup-v1/
 
 # TODO: add nesting
 
-#### cpu
+#### **cpu**
 
 https://www.kernel.org/doc/Documentation/scheduler/sched-bwc.rst
 
@@ -1279,51 +1279,51 @@ cpu.stat:
 This interface is read-only.
 ```
 
-#### cpuacct
+#### **cpuacct**
 
 https://www.kernel.org/doc/Documentation/admin-guide/cgroup-v1/cpuacct.rst
 
-#### cpuset
+#### **cpuset**
 
 https://www.kernel.org/doc/Documentation/admin-guide/cgroup-v1/cpusets.rst
 
-#### memory
+#### **memory**
 
 https://www.kernel.org/doc/Documentation/admin-guide/cgroup-v1/memory.rst
 
-#### devices
+#### **devices**
 
 https://www.kernel.org/doc/Documentation/admin-guide/cgroup-v1/devices.rst
 
-#### freezer
+#### **freezer**
 
 https://www.kernel.org/doc/Documentation/admin-guide/cgroup-v1/freezer-subsystem.rst
 
-#### net_cls
+#### **net_cls**
 
 https://www.kernel.org/doc/Documentation/admin-guide/cgroup-v1/net_cls.rst
 
-#### blkio
+#### **blkio**
 
 https://www.kernel.org/doc/Documentation/admin-guide/cgroup-v1/blkio-controller.rst
 
-#### perf_event
+#### **perf_event**
 
 has no explicit man-page
 
-#### net_prio
+#### **net_prio**
 
 https://www.kernel.org/doc/Documentation/admin-guide/cgroup-v1/net_prio.rst
 
-#### hugetlb
+#### **hugetlb**
 
 https://www.kernel.org/doc/Documentation/admin-guide/cgroup-v1/hugetlb.rst
 
-#### pids
+#### **pids**
 
 https://www.kernel.org/doc/Documentation/admin-guide/cgroup-v1/pids.rst
 
-#### rdma
+#### **rdma**
 
 https://www.kernel.org/doc/Documentation/admin-guide/cgroup-v1/rdma.rst
 
@@ -1498,7 +1498,7 @@ $ cat /sys/fs/cgroup/memory/tcg1/memory.limit_in_bytes
 
 With this the process we'll execute in this cgroup should be killed immediately since it cannot allocate any memory.
 
-#### executing a process inside a cgroup
+#### **executing a process inside a cgroup**
 
 We're starting out with a helper command once again, `cgexec` is the equivalent of `nsenter` for cgroups
 
@@ -1564,7 +1564,7 @@ $ dmesg
 [ 4751.852361] Memory cgroup out of memory: Killed process 34294 (ls) total-vm:6280kB, anon-rss:256kB, file-rss:2304kB, shmem-rss:0kB, UID:0 pgtables:44kB oom_score_adj:0
 ```
 
-#### connection between process and cgroup
+#### **connection between process and cgroup**
 
 ```bash
 $ ps -C bash
@@ -1619,7 +1619,7 @@ Note that `execve` is executed after writing the PID to the tasks file (also kee
 
 > Note: This file is called tasks since `tasks` is what linux calls processes internally
 
-#### cleanup
+#### **cleanup**
 
 we can delete our cgroup via the helper command `cgdelete`
 
