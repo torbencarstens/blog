@@ -21,4 +21,6 @@ nav:
   - Kubernetes:
     - Mine:
       - Setup: 'kubernetes/mine/setup.md'
+  - Linux:
+    - namespaces: 'linux/namespaces.md'
   - About: about.md
