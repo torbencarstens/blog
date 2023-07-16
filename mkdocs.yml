@@ -16,7 +16,13 @@ theme:
         name: Switch to light mode
 plugins:
   - git-revision-date
-  - minify
+  - minify:
+      minify_html: true
+      minify_js: true
+      minify_css: true
+      htmlmin_opts:
+          remove_comments: true
+      cache_safe: true
 nav:
   - Home: index.md
   - Kubernetes:
