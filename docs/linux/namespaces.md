@@ -1291,6 +1291,13 @@ This interface is read-only.
 
 https://www.kernel.org/doc/Documentation/admin-guide/cgroup-v1/cpuacct.rst
 
+```text
+user: Time spent by tasks of the cgroup in user mode.
+system: Time spent by tasks of the cgroup in kernel mode.
+
+user and system are in USER_HZ unit.
+```
+
 #### **cpuset**
 
 https://www.kernel.org/doc/Documentation/admin-guide/cgroup-v1/cpusets.rst
