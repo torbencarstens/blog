@@ -23,6 +23,7 @@ plugins:
       htmlmin_opts:
           remove_comments: true
       cache_safe: true
+  - rss
 nav:
   - Home: index.md
   - Kubernetes:
@@ -30,4 +31,8 @@ nav:
       - Setup: 'kubernetes/mine/setup.md'
   - Linux:
     - namespaces: 'linux/namespaces.md'
+  - Reviews:
+    - Alcohol:
+      - Whiskey:
+        - Old Pub Dogs: 'reviews/alcohol/whiskey/oldpubdogs.md'
   - About: about.md
