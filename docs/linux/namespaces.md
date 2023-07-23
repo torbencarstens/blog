@@ -1193,7 +1193,7 @@ $ unshare --user id
 uid=65534(nobody) gid=65534(nobody) groups=65534(nobody)
 $ unshare --user ls -ln
 -rw-r--r-- 1 65534 65534  41335 15. Mai 12:11 README.md
-$ unshare --user /bin/ls / -lna | grep ' \.$'
+$ unshare --user /bin/ls / --long --numeric --all | grep ' \.$'
 drwxr-xr-x  17 65534 65534  4096 29. Mär 19:53 .
 ```
 
@@ -1204,11 +1204,11 @@ When testing this (e.g. by writing to `/`) we see that this is not actually true
 ```bash
 $ touch /test.txt
 touch: cannot touch '/test.txt': Permission denied
-$ cat /proc/bashpid/uid_map
+$ cat /proc/{bashpid}/uid_map
 # <EMPTY>
 ```
 
-comparing the `uid_map` to a non-namespaces `uid_map`
+comparing the `uid_map` to a non-namespaced `uid_map`
 
 ```bash
 $ cat /proc/self/uid_map
@@ -1224,7 +1224,7 @@ In the case above, we start in our namespace with user id 0 (first `0`), and map
 >
 > For checking permissions the internal uid is mapped to that on the parent namespace, permission are checked from there recursively (in case of namespace nesting).
 
-# TODO: continue on user namespaces
+
 
 ## control groups (cgroups)
 
