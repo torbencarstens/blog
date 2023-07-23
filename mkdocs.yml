@@ -1,5 +1,6 @@
 site_name: my blog
 site_url: https://blog.carstens.tech
+site_description: "a blog, indeed"
 repo_url: https://github.com/torbencarstens/blog
 theme:
   name: material
