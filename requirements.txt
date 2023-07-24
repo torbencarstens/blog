@@ -2,4 +2,4 @@ mkdocs==1.4.3
 mkdocs-material==9.1.19
 mkdocs-git-revision-date-plugin==0.3.2
 mkdocs-minify-plugin==0.6.4
-mkdocs-rss-plugin==1.7.0
+mkdocs-rss-plugin==1.8.0
