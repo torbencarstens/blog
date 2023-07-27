@@ -25,7 +25,7 @@ We'll only be using images which are offered by hetzner as part of their [`Stand
 - [doppler](https://www.doppler.com/) api key
 - [external-secrets operator](https://external-secrets.io/latest/)  (including a `ClusterSecretStore` connected to doppler)
 - argoCD `AppProject` (`argocd`)
-- [argocd-bootstrap](https://github.com/OpenAlcoholics/argocd-bootstrap) set to the `argocd` `AppProject`
+- [argocd-bootstrap](https://github.com/BlindfoldedSurgery/argocd-bootstrap) set to the `argocd` `AppProject`
 - `argocd` (minimal configuration, e.g. without an `Ingress`)
 
 `argocd` will later manage the [`external-secrets`](https://github.com/torbencarstens/external-secrets/) operator and [itself](https://github.com/torbencarstens/argocd).
@@ -38,6 +38,6 @@ The `external-secrets` operator will take over ownership of the `doppler` secret
 > 
 > ansible roles will be fairly static since they're just setting up the initial cluster
 
-[argocd-bootstrap](https://github.com/OpenAlcoholics/argocd-bootstrap) is installed by [ansible-role-os-cluster-baseconfig](https://github.com/torbencarstens/ansible-role-cluster-baseconfig).
+[argocd-bootstrap](https://github.com/BlindfoldedSurgery/argocd-bootstrap) is installed by [ansible-role-os-cluster-baseconfig](https://github.com/torbencarstens/ansible-role-cluster-baseconfig).
 
 `argocd` will have ownership of all resources which aren't managed by rke2/rancher (e.g. `cilium`) or another operator (e.g. `postgres-operator`).
