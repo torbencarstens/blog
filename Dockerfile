@@ -12,6 +12,6 @@ ADD mkdocs.yml mkdocs.yml
 RUN pip install -r requirements.txt
 RUN mkdocs build
 
-FROM nginxinc/nginx-unprivileged:1.25.1
+FROM nginxinc/nginx-unprivileged:1.25.2
 
 COPY --from=builder /app/site /usr/share/nginx/html
