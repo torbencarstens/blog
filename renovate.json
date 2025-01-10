@@ -12,10 +12,10 @@
       "matchManagers": [
         "pip_requirements"
       ],
-      "matchDepPatterns": [
-        "mkdocs.*"
-      ],
-      "automerge": true
+      "automerge": true,
+      "matchDepNames": [
+        "/mkdocs.*/"
+      ]
     }
   ]
 }
